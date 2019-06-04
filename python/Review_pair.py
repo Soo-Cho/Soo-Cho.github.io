@@ -1,4 +1,5 @@
-print(num1 = 8)
-print(num2 = 2)
-print(add = num1 + num2)
-print(try = num1 - num2)
+num1 = 8
+num2 = 2
+add = num1 + num2
+try = num1 - num2
+print (add)
