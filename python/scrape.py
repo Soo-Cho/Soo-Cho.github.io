@@ -86,3 +86,12 @@ for url in urls:
 print(len(corpus_texts))
 # it's going to tell us how long it is
 print(len(corpus_texts[0]))
+
+#now since we have all the materials, we are going to use text analysis library
+#shift t a new library
+# what we got is a huge string. by using nltk, cut it into words
+# then most common words 
+this_text = corpus_texts[0]
+process_this_text = nltk.word_tokenize(this_text)
+print(process_this_text[0:20])
+print(nltk.FreqDist(process_this_text).most_common(50))
