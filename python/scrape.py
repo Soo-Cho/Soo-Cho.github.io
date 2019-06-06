@@ -54,7 +54,7 @@ urls = []
 ##     urls.append(to_append)
 
 # for this, we needed the front part of the url
-# careful!! no space in between ""
+# should not have a space in between "" because this should go into the url
 for link in links_html:
     to_append = link["href"].replace("blob/", "")
     urls.append("https://raw.githubusercontent.com" + to_append)
@@ -75,7 +75,9 @@ print(urls)
 test_url = urls[3]
 corpus_texts = []
 
+#here, it does not matter whether you have space in between "" or not. It just means that you wanted replace blank lines with space
 for url in urls:
+    # print(url)
     html = request.urlopen(url).read()
     soup = BeautifulSoup(html, "lxml")
     text = soup.text.replace("\n", "")
@@ -90,7 +92,7 @@ print(len(corpus_texts[0]))
 #now since we have all the materials, we are going to use text analysis library
 #shift t a new library
 # what we got is a huge string. by using nltk, cut it into words
-# then most common words 
+# then most common words
 this_text = corpus_texts[0]
 process_this_text = nltk.word_tokenize(this_text)
 print(process_this_text[0:20])
